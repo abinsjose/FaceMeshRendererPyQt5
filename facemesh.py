@@ -4,9 +4,8 @@ Created on Sun Apr 17 10:36:12 2022
 
 @author: abins
 """
-import math
+
 import cv2
-import numpy as np
 import mediapipe as mp
 
 mp_face_mesh = mp.solutions.face_mesh

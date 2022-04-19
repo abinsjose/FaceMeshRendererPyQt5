@@ -17,18 +17,18 @@ class FaceMeshRenderer(QtWidgets.QWidget):
         self.ui.setupUi(self)
         
         self.cam = cv2_camera.Cv2Camera(self.ui.cameraView)
-        self.ui.startCaptureBtn.clicked.connect(self.cam.startCapture)
-        self.ui.stopCaptureBtn.clicked.connect(self.cam.stopCapture)
-        self.cam.captureStatusChanged.connect(self.cameraStatusChanged)
+        self.ui.startCaptureBtn.clicked.connect(self.cam.StartCapture)
+        self.ui.stopCaptureBtn.clicked.connect(self.cam.StopCapture)
+        self.cam.CaptureStatusChanged.connect(self.CameraStatusChanged)
         self.show()
 
     def closeEvent(self, event):
         print('Closing facemeshrenderer')
-        self.cam.stopCapture();
+        self.cam.StopCapture();
         del self.cam
         return super().closeEvent(event)
         
-    def cameraStatusChanged(self, status):
+    def CameraStatusChanged(self, status):
         print("Camera status changed to ", status)
         self.ui.startCaptureBtn.setEnabled(not status)
         self.ui.stopCaptureBtn.setEnabled(status)

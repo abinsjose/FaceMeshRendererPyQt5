@@ -12,7 +12,7 @@ from PyQt5 import QtWidgets
 
 class Renderer():
 
-    def destroy(self):
+    def Destroy(self):
         if (hasattr(self, 'plotter')):
             print('Closing plotter')
             self.plotter.close()
@@ -26,7 +26,7 @@ class Renderer():
         return np.array(landmark_gen, dtype='float')
     
        
-    def create(self, parent, face_landmarks, image_width, image_height):
+    def Create(self, parent, face_landmarks, image_width, image_height):
     
         face_array = self.LandmarksToArray(face_landmarks, image_width, image_height)
         print(face_array.shape)
@@ -47,7 +47,7 @@ class Renderer():
         #self.mesh = pv.PolyData(face_array)
         #self.mesh.plot(point_size=5, style='wireframe', show_edges=True)
     
-    def update(self, face_landmarks, image_width, image_height):
+    def Update(self, face_landmarks, image_width, image_height):
         face_array = self.LandmarksToArray(face_landmarks, image_width, image_height)
         print(face_array.shape)
         self.plotter.update_coordinates(face_array, self.mesh)
