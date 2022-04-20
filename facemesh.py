@@ -11,11 +11,17 @@ import mediapipe as mp
 mp_face_mesh = mp.solutions.face_mesh
 
 class FaceMesh():
+    def __init__(self):
+        print('FaceMesh constructed')
+        
+    def __del__(self):
+        print('FaceMesh destroyed')
+        
     def Generate(self, image):
         with mp_face_mesh.FaceMesh(
             static_image_mode=False,
             refine_landmarks=True,
-            max_num_faces=2,
+            max_num_faces=1,
             min_detection_confidence=0.5) as face_mesh:
             
             # Convert the BGR image to RGB and process it with MediaPipe Face Mesh.

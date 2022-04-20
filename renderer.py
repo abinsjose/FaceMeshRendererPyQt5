@@ -11,6 +11,12 @@ import pyvistaqt as pvqt
 from PyQt5 import QtWidgets
 
 class Renderer():
+    
+    def __init__(self):
+        print('Renderer constructed')
+    
+    def __del__(self):
+        print('Renderer destroyed')
 
     def Destroy(self):
         if (hasattr(self, 'plotter')):
@@ -40,16 +46,10 @@ class Renderer():
         #self.plotter.camera_position = [(0.29021832576334505, 0.2999641109829936, 1.0),
         #  (0.4061845988035202, 0.6308744549751282, 0.019136086106300354),
         #  (0.14587638746193216, -0.8380288155379086, -0.5257640002027394)]
-        
-        #self.plotter.camera.zoom(2)    # Note how we can now access underlying attributes
-        #self.plotter.show() 
-    
-        #self.mesh = pv.PolyData(face_array)
-        #self.mesh.plot(point_size=5, style='wireframe', show_edges=True)
-    
+   
     def Update(self, face_landmarks, image_width, image_height):
         face_array = self.LandmarksToArray(face_landmarks, image_width, image_height)
         print(face_array.shape)
         self.plotter.update_coordinates(face_array, self.mesh)
-        print('camera position: ', str(self.plotter.camera_position))
+        #print('camera position: ', str(self.plotter.camera_position))
         
