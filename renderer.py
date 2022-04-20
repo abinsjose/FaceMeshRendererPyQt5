@@ -42,10 +42,9 @@ class Renderer():
         self.vlayout.addWidget(self.plotter.interactor)
         self.mesh = pv.PolyData(face_array)
         self.plotter.add_mesh(self.mesh)    # add a mesh to the scene
-        
-        #self.plotter.camera_position = [(0.29021832576334505, 0.2999641109829936, 1.0),
-        #  (0.4061845988035202, 0.6308744549751282, 0.019136086106300354),
-        #  (0.14587638746193216, -0.8380288155379086, -0.5257640002027394)]
+        self.plotter.camera_position = [(271.17795442515796, 373.32732951080106, -368.10150608187024),
+                                        (260.26798248291016, 327.3098945617676, 12.291778326034546),
+                                        (0.06920632076548205, -0.9906165211668803, -0.11785326960815704)]
    
     def Update(self, face_landmarks, image_width, image_height):
         face_array = self.LandmarksToArray(face_landmarks, image_width, image_height)

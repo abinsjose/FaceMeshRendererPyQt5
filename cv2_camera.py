@@ -20,9 +20,6 @@ class Cv2Camera(QObject):
         
     def __del__(self):
         print('Cv2Camera destroyed')
-        if (hasattr(self, 'videoCap')):
-            self.videoCap.release()
-            del self.videoCap
 
     def StartCapture(self):
         self.videoCap = cv2.VideoCapture(0)

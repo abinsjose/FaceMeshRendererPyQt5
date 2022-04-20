@@ -29,8 +29,6 @@ class FaceMeshRenderer(QtWidgets.QWidget):
     def closeEvent(self, event):
         print('Closing facemeshrenderer')
         self.cam.StopCapture();
-        del self.cam
-        del self.processor
         QtWidgets.QApplication.quit()
         event.accept()
         
